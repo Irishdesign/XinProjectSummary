@@ -1,0 +1,27 @@
+scalar ByteArray
+extend type Query {
+    cashflow(orderID: Int!): R_Cashflow
+    cashflows: R_Cashflows
+    # EcpayCashflow(orderNo: String!): R_EcpayCashflows
+}
+type R_Cashflow {
+    code: Int!
+    msg: String!
+    data: Cashflow!
+}
+
+type R_Cashflows {
+    code: Int!
+    msg: String!
+    data: [Cashflow!]!
+}
+
+type Cashflow {
+    ID: Int
+    orderID: Int
+    Simulation: Int
+    Status: Int
+    Payload: ByteArray
+    CreatedAt: Int
+    UpdatedAt: Int
+}
